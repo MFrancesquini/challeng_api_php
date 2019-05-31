@@ -34,27 +34,76 @@
       }
 
       if (count($err) == 0 || !isset($err)){
-         //using javascript to access success page
-         echo "<script>alert('Success login'); location.href='sucess.php';</script>";
+         //Going to the system
+         header("Location: success.php");
       }
    }
 ?>
-<html>
-   <head></head>
-   <body>
-      <?php
-         if (count($err)>0)
 
-            foreach ($err as $msg) {
-              echo "<p> $msg </p>";
-            }
-      ?>
-      <form method="POST" action="">
-        <p><input value="" name="name" type="text" placeholder="Please, write your name"></p>
-        <p><input value="<?php echo $_SESSION['email']; ?>" name="email" type="text" placeholder="Please, write your e-mail"></p>
-        <p><input name="senha" type="password"></p>
-        <p><a href="recover.php" target="_blank">Recover your password</a></p>
-        <p><input value="Enter" type="submit"></p>
-      </form>
-   </body>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <!-- Some Basic bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <?php
+                        if(isset($err))
+                            if(count($err) > 0){ ?>
+                                <div class="alert alert-danger">
+                                    <?php foreach($err as $msg) echo "$msg <br>"; ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        <form method="post" action="" role="form">
+                            <fieldset>
+                                <div class="form-group">
+									 <input value="" name="na?>me" type="text" placeholder="Write your name, please." class="form-control" autofocus>
+                                </div>
+                                <div class="form-group">
+                                     <input value="<?php if(isset($_SESSION['email'])) echo $_SESSION['•••••email']; ?>"  placeholder="Write your e-mail, please." name="email" type="email"  class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" required placeholder="Write your password, please." name="senha" type="password" value="">
+                                </div>
+                                <button type="submit" name="login" value="true" class="btn btn-success btn-block">Login</button>
+
+                                <p><a href="recover.php" target="_blank">Did you forget your password?</a></p>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
 </html>

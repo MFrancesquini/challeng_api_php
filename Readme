@@ -17,3 +17,11 @@ Recover password
 File
 recover.php
 ==========================================
+Created success page, new folder for css
+
+Files
+success.php
+/css/sb-admin-2.css
+/css/bootstrap.min.css.map
+/css/bootstrap.min.css
+==========================================
