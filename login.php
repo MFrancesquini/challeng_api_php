@@ -6,7 +6,6 @@
          session_start();
 
       $_SESSION['email'] = $mysql->escape_string($_POST['email']);
-      //tried protect with password md5, but i need try harder
       $_SESSION['senha'] = $_POST['senha'];
 
       $sql_code = "SELECT id, email, senha FROM users WHERE email='$_SESSION[email]'";
@@ -46,8 +45,6 @@
       <?php
          if (count($err)>0)
 
-            echo "Senha: "+" $chaves "+" essa";
-
             foreach ($err as $msg) {
               echo "<p> $msg </p>";
             }
@@ -56,7 +53,7 @@
         <p><input value="" name="name" type="text" placeholder="Please, write your name"></p>
         <p><input value="<?php echo $_SESSION['email']; ?>" name="email" type="text" placeholder="Please, write your e-mail"></p>
         <p><input name="senha" type="password"></p>
-        <p><a href="">Recover your password</a></p>
+        <p><a href="recover.php" target="_blank">Recover your password</a></p>
         <p><input value="Enter" type="submit"></p>
       </form>
    </body>

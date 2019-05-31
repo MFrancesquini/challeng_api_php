@@ -8,6 +8,12 @@ connect.php
 ==========================================
 Developed and tested protecting
 
+Files
 admin.php - testing
 protect.php - protect method
+==========================================
+Recover password
+
+File
+recover.php
 ==========================================
