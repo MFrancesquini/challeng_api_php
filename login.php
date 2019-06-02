@@ -23,11 +23,14 @@
 
            $_SESSION['user'] == $data['id'];
 
+           echo json_encode($json, JSON_PRETTY_PRINT);
+
         } else {
 
            $chave = $dado['senha'];
            $chaves = $_SESSION['senha'];
-           $err[] = "Incorrect password.";
+           $err[] = "Incorrect password.
+ ";
 
         }
 
@@ -83,10 +86,10 @@
                         <form method="post" action="" role="form">
                             <fieldset>
                                 <div class="form-group">
-									 <input value="" name="na?>me" type="text" placeholder="Write your name, please." class="form-control" autofocus>
+								                  	 <input value="" name="name" type="text" placeholder="Write your name, please." class="form-control" autofocus>
                                 </div>
                                 <div class="form-group">
-                                     <input value="<?php if(isset($_SESSION['email'])) echo $_SESSION['•••••email']; ?>"  placeholder="Write your e-mail, please." name="email" type="email"  class="form-control">
+                                     <input value="<?php if(isset($_SESSION['email'])) echo $_SESSION['email']; ?>"  placeholder="Write your e-mail, please." name="email" type="email"  class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" required placeholder="Write your password, please." name="senha" type="password" value="">
